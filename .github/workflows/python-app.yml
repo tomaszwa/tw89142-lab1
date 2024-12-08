@@ -74,6 +74,9 @@ jobs:
         - name: Recover cached deps
           id: cached-poetry-dependencies
           uses: action/cache@v3
+          with:
+            path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
+            key: ${{ runner.os }}-venv
         - name: lint
           run: |
             poetry run task lint
@@ -106,6 +109,9 @@ jobs:
           - name: Recover cached deps
             id: cached-poetry-dependencies
             uses: action/cache@v3
+            with:
+              path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
+              key: ${{ runner.os }}-venv
           - name: formatter
             run: |
               poetry run task formatter
@@ -135,7 +141,10 @@ jobs:
           uses: snok/install-poetry@v1.3.4  
         - name: Recover cached deps
           id: cached-poetry-dependencies
-          uses: action/cache@v3          
+          uses: action/cache@v3      
+          with:
+            path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
+            key: ${{ runner.os }}-venv
         - name: security
           run: |
             poetry run task security
@@ -165,6 +174,9 @@ jobs:
         - name: Recover cached deps
           id: cached-poetry-dependencies
           uses: action/cache@v3  
+          with:
+            path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
+            key: ${{ runner.os }}-venv
         - name: test
           run: |
             poetry run task test
