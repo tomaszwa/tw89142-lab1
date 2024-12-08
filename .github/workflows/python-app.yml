@@ -14,11 +14,13 @@ permissions:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os}}
     defaults:
       run:
-        working-directory: ./example-app
+        working-directory: ./example-app        
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python 3.11
