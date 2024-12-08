@@ -38,8 +38,6 @@ jobs:
     
   lint:
       runs-on: ubuntu-latest
-      concurrency:
-        group: group_test  
       needs: build
       defaults:
         run:
@@ -54,7 +52,7 @@ jobs:
           uses: snok/install-poetry@v1.3.4  
         - name: Recover cached deps
           id: cached-poetry-dependencies
-          uses: action/cache@v3
+          uses: actions/cache@v3
           with:
             path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
             key: ${{ runner.os }}--venv
@@ -65,8 +63,6 @@ jobs:
   
   formatter:
         runs-on: ubuntu-latest
-        concurrency:
-          group: group_test  
         needs: build
         defaults:
           run:
@@ -81,7 +77,7 @@ jobs:
             uses: snok/install-poetry@v1.3.4  
           - name: Recover cached deps
             id: cached-poetry-dependencies
-            uses: action/cache@v3
+            uses: actions/cache@v3
             with:
               path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
               key: ${{ runner.os }}--venv
@@ -89,9 +85,7 @@ jobs:
             run: |
               poetry run task formatter
   security:          
-      runs-on: ubuntu-latest
-      concurrency:
-        group: group_test  
+      runs-on: ubuntu-latest 
       defaults:
         run:
           working-directory: ./example-app
@@ -106,7 +100,7 @@ jobs:
           uses: snok/install-poetry@v1.3.4  
         - name: Recover cached deps
           id: cached-poetry-dependencies
-          uses: action/cache@v3      
+          uses: actions/cache@v3      
           with:
             path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
             key: ${{ runner.os }}--venv
@@ -130,7 +124,7 @@ jobs:
           uses: snok/install-poetry@v1.3.4  
         - name: Recover cached deps
           id: cached-poetry-dependencies
-          uses: action/cache@v3  
+          uses: actions/cache@v3  
           with:
             path: /home/runner/work/tw89142-lab1/tw89142-lab1/example-app/.venv
             key: ${{ runner.os }}--venv
