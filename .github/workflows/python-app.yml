@@ -51,6 +51,7 @@ jobs:
       runs-on: ubuntu-latest
       concurrency:
         group: group_test  
+      needs: build
       steps:
         - uses: actions/checkout@v4
         - name: Set up Python 3.11
@@ -82,6 +83,7 @@ jobs:
         runs-on: ubuntu-latest
         concurrency:
           group: group_test  
+        needs: build
         steps:
           - uses: actions/checkout@v4
           - name: Set up Python 3.11
@@ -111,6 +113,7 @@ jobs:
       runs-on: ubuntu-latest
       concurrency:
         group: group_test  
+      needs: build
       steps:
         - uses: actions/checkout@v4
         - name: Set up Python 3.11
