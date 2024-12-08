@@ -142,7 +142,7 @@ jobs:
 
   unit_test:
       runs-on: ubuntu-latest
-      needs: lint
+      needs: [lint,formatter,security,build]
       steps:
         - uses: actions/checkout@v4
         - name: Set up Python 3.11
