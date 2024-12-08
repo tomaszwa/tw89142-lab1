@@ -50,7 +50,7 @@ jobs:
   lint:
       runs-on: ubuntu-latest
       concurrency:
-        group: group-test  
+        group: group_test  
       steps:
         - uses: actions/checkout@v4
         - name: Set up Python 3.11
@@ -81,7 +81,7 @@ jobs:
   formatter:
         runs-on: ubuntu-latest
         concurrency:
-          group: group-test  
+          group: group_test  
         steps:
           - uses: actions/checkout@v4
           - name: Set up Python 3.11
@@ -110,7 +110,7 @@ jobs:
   security:          
       runs-on: ubuntu-latest
       concurrency:
-        group: group-test  
+        group: group_test  
       steps:
         - uses: actions/checkout@v4
         - name: Set up Python 3.11
